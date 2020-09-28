@@ -1,0 +1,93 @@
+a {
+  color: hsl(0, 0%, 71%);
+}
+
+a:hover {
+  color:#009e86;
+}
+
+.number-col {
+  font-family: monospace;
+  text-align: right !important;
+  font-size: 1.25em;
+}
+
+.flat-btn {
+  background: white;
+  border: 1px solid #dbdbdb;
+  outline: none;
+  box-shadow: 1px 1px 3px #00000040;
+  color: hsl(0, 0%, 21%);
+  height: 1.7em;
+  border-radius: 0.85em;
+  transition: 100ms ease-in-out box-shadow, 100ms ease-in-out background;
+}
+
+.flat-btn:hover {
+  box-shadow: 2px 2px 4px #00000040;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.flat-btn:active {
+  box-shadow: 0 0 1px #00000040;
+}
+
+.flat-btn.primary {
+  background: #00b89c;
+  border: 1px solid #009e86;
+  color: white;
+}
+
+.flat-btn.primary:hover {
+  background: #009e86;
+}
+
+.flat-btn.secondary {
+  background: #0a7cc4;
+  border: 1px solid #075485;
+  color: white;
+}
+
+.flat-btn.secondary:hover {
+  background: #075485;
+}
+
+.flat-btn.tertiary {
+  background: #b812b7;
+  border: 1px solid #9e109e;
+  color: white;
+}
+
+.flat-btn.tertiary:hover {
+  background: #9e109e;
+}
+
+.flat-btn.fancy {
+  background: radial-gradient(circle at bottom right, #00b89c 0, #0a7cc4 100%);
+  border: 1px solid #0a7cc4;
+  color: white;
+}
+
+.flat-btn.fancy:hover {
+  background: radial-gradient(circle at bottom right, #009e86 0, #075485 100%);
+  border: 1px solid #075485;
+}
+
+.flat-btn.fancy3 {
+  background: radial-gradient(circle at bottom right, #b812b7 0, #0a7cc4 100%);
+  border: 1px solid rgb(91, 75, 190);
+  color: white;
+}
+
+.flat-btn.fancy3:hover {
+  background: radial-gradient(circle at bottom right, #9e109e 0, #075485 100%);
+}
+
+.statistic-table {
+  width: 100%;
+}
+
+.statistic-table .flat-btn {
+  margin: 0 2px;
+}

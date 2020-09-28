@@ -1,4 +1,8 @@
-# elm-package generated files
-elm-stuff
-# elm-repl generated files
-repl-temp-*
+# IDE
+/.vscode
+/dist
+debug.log
+
+# packages and stuff
+/node_modules
+/elm/elm-stuff
