@@ -65,9 +65,9 @@ export default class AttractorMachineComponent extends HTMLElement {
       5,
       64,
       0.025,
-      app.ports.attractorsChanged.send,
-      app.ports.optimizationStep.send,
-      app.ports.statisticChanged.send
+      (particles) => app.ports.attractorsChanged.send(particles),
+      (data) => app.ports.optimizationStep.send(data),
+      (statistics) => app.ports.statisticChanged.send(statistics)
     );
 
     // Connect ports for elm-to-js interop
