@@ -191,18 +191,17 @@ export default class AttractorMachine {
       this._attractorParticlePairIndices &&
       this._particlePairIndices
     ) {
-      const tempAttractors = this._attractors;
-      const tempParticles = this._particles;
-      const tempAttractorParticlePairIndices = this
-        ._attractorParticlePairIndices;
-      const tempParticlePairIndices = this._particlePairIndices;
+      const attractors = this._attractors;
+      const particles = this._particles;
+      const attractorParticlePairIndices = this._attractorParticlePairIndices;
+      const particlePairIndices = this._particlePairIndices;
 
       this._optimizer.minimize(() => {
         const lastLoss = this.loss(
-          tempAttractors,
-          tempParticles,
-          tempAttractorParticlePairIndices,
-          tempParticlePairIndices
+          attractors,
+          particles,
+          attractorParticlePairIndices,
+          particlePairIndices
         );
         lastLoss.data().then((x) => {
           lastLossValue = x[0];
