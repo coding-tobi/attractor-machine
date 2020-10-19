@@ -14,6 +14,7 @@ export default class AttractorMachine {
   private _numParticles: number = 0;
   private _attractors: tf.Tensor2D | null = null;
   private _particles: tf.Variable | null = null;
+  private _targetDistance: tf.Scalar;
   private _attractorParticlePairIndices:
     | [tf.Tensor1D, tf.Tensor1D]
     | null = null;
@@ -96,6 +97,7 @@ export default class AttractorMachine {
   ) {
     this.numAttractors = numAttractors;
     this.numParticles = numParticles;
+    this._targetDistance = tf.scalar(0.5, "float32");
     this._optimizer = this.createOptimizer();
     this.shuffleAttractors();
     this.shuffleParticles();
@@ -129,6 +131,7 @@ export default class AttractorMachine {
       ATTRACTOR_RANGE,
       "float32"
     );
+    this._attractors?.print();
   }
 
   public addParticles(n: number) {
@@ -245,6 +248,7 @@ export default class AttractorMachine {
     return AttractorMachine.attractionLoss(
       attractors,
       particles,
+      this._targetDistance,
       attractorParticlePairIndices
     ).div(AttractorMachine.repulsionGain(particles, particlePairIndices));
   }
@@ -255,11 +259,11 @@ export default class AttractorMachine {
   private static attractionLoss(
     attractors: tf.Tensor2D,
     particles: tf.Tensor,
+    targetDistance: tf.Scalar,
     [is, js]: [tf.Tensor1D, tf.Tensor1D]
   ): tf.Scalar {
     const as = attractors.gather(is);
     const ps = particles.gather(js);
-    const targetDistance = 0.5;
     return ps.sub(as).square().sum(1).sqrt().sub(targetDistance).square().sum();
   }
 
