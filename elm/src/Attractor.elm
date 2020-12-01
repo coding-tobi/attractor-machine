@@ -355,8 +355,8 @@ viewStatistics model =
                     ]
                     [ text
                         ((model.loss * 1000.0 |> String.fromFloat |> String.slice 0 6)
-                            ++ "‰ / "
-                            ++ ((model.lossDeltaAvg * 1000 |> String.fromFloat |> String.slice 0 5) ++ "‰")
+                            ++ " m / "
+                            ++ ((model.lossDeltaAvg * 1000 |> String.fromFloat |> String.slice 0 5) ++ " m")
                         )
                     ]
                 ]
